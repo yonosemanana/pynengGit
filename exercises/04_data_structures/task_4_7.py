@@ -9,3 +9,13 @@
 '''
 
 MAC = 'AAAA:BBBB:CCCC'
+
+MAC_PARTS = MAC.split(':')
+
+RES = ""
+
+for MAC_PART in MAC_PARTS:
+   RES += bin(int(MAC_PART, 16))[2:]
+   
+print(RES)
+print(len(RES))

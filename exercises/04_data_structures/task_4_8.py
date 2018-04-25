@@ -19,3 +19,13 @@
 '''
 
 IP = '192.168.3.1'
+
+STR_TEMPLATE = ("{0:<8}  {1:<8}  {2:<8}  {3:<8}\n"
+"{0:08b}  {1:08b}  {2:08b}  {3:08b}")
+
+IP_LIST = IP.split(".")
+#print(IP_LIST)
+print(STR_TEMPLATE)
+                    
+RES = STR_TEMPLATE.format(int(IP_LIST[0]), int(IP_LIST[1]), int(IP_LIST[2]), int(IP_LIST[3]))
+print(RES)

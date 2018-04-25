@@ -14,3 +14,15 @@
 
 command1 = 'switchport trunk allowed vlan 1,3,10,20,30,100'
 command2 = 'switchport trunk allowed vlan 1,3,100,200,300'
+
+tmp_str = command1[command1.find('1'):]
+tmp_list = tmp_str.split(',')
+set1 = set(int(c) for c in tmp_list)
+
+tmp_str = command2[command2.find('1'):]
+tmp_list = tmp_str.split(',')
+set2 = set(int(c) for c in tmp_list)
+
+int_set = set1.intersection(set2)
+l = list(int_set)
+print(l)

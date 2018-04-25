@@ -10,3 +10,7 @@
 '''
 
 CONFIG = 'switchport trunk allowed vlan 1,3,10,20,30,100'
+
+TMP_CONFIG = CONFIG[CONFIG.find('1'):]
+VLANs = TMP_CONFIG.split(',')
+print(VLANs)
