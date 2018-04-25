@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # pyneng-examples-exercises
 
 Задания и примеры из книги "Python для сетевых инженеров" для Python 3.6
