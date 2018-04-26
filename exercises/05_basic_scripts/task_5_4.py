@@ -17,3 +17,28 @@ num_list = [10, 2, 30, 100, 10, 50, 11, 30, 15, 7]
 word_list = [
     'python', 'ruby', 'perl', 'ruby', 'perl', 'python', 'ruby', 'perl'
 ]
+
+#num_list = [2, 3, 2, 5, 2, 8]
+#word_list = ["hello", "one", "two", "one", "three"]
+
+num = input("Enter the number: ")
+num_s_l = [str(num_l) for num_l in num_list]
+num_s = " " + " ".join(num_s_l) + " "
+
+#print(num_s)
+str_index = num_s.rfind(" " + num + " ")
+#print(str_index)
+index = num_s[:str_index].count(" ")
+#print(num_s[:str_index])
+#print(index)
+print("Index of the latest match of {0} is {1}.".format(num, str(index)))
+
+
+
+
+word = input("Enter the word: ")
+word_s = " " + " ".join(word_list) + " "
+str_index = word_s.rfind(" " + word + " ")
+index = word_s[:str_index].count(" ")
+print("Index of the latest match of {0} is {1}.".format(word, str(index)))
+

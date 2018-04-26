@@ -47,3 +47,7 @@ london_co = {
         'routing': True
     }
 }
+
+device = input("Input the name of the device: ")
+#print(london_co[device])
+print(london_co.get(device, "There is no such device"))
