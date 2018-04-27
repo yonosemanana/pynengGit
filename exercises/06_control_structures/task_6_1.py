@@ -19,3 +19,20 @@ D: 224-239
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+
+IP_ADDR = input("Enter ip address in format '10.0.1.1': ")
+
+FIRST_OCTET = int(IP_ADDR.split(".")[0])
+
+if FIRST_OCTET >= 1 and FIRST_OCTET <= 223:
+    print("unicast")
+elif FIRST_OCTET >= 224 and FIRST_OCTET <= 239:
+    print("multicast")
+elif IP_ADDR == "0.0.0.0":
+    print("unassigned")
+elif IP_ADDR == "255.255.255.255":
+    print("local broadcast")
+else:
+    print("unused")
+    
+    

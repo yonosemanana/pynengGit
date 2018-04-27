@@ -4,6 +4,7 @@ sw1#sh mac address-table
 
 Vlan    Mac Address       Type        Ports
 ----    -----------       --------    -----
+ 1001   01bb.c580.7001    DYNAMIC     Gi0/1
  100    01bb.c580.7000    DYNAMIC     Gi0/1
  200    0a4b.c380.7000    DYNAMIC     Gi0/2
  300    a2ab.c5a0.7000    DYNAMIC     Gi0/3

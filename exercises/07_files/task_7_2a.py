@@ -13,3 +13,24 @@
 '''
 
 ignore = ['duplex', 'alias', 'Current configuration']
+
+from sys import argv
+
+COMMANDS = ""
+
+with open(argv[1]) as file:
+    
+    for line in file:
+        
+        if not line.startswith("!"):
+            
+            PROHIBITED = False
+            for word in ignore:
+                if line.find(word) != -1:
+                    PROHIBITED = True
+                    break
+            
+            if not PROHIBITED:
+                COMMANDS += line
+
+print(COMMANDS)
