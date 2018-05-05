@@ -1,0 +1,18 @@
+AR99-36.ekb#show ip int br
+Interface              IP-Address      OK? Method Status                Protocol
+TenGigabitEthernet4/1  unassigned      YES unset  administratively down down    
+TenGigabitEthernet4/2  unassigned      YES NVRAM  administratively down down    
+TenGigabitEthernet4/3  unassigned      YES NVRAM  administratively down down    
+TenGigabitEthernet4/4  unassigned      YES NVRAM  administratively down down    
+GigabitEthernet5/1     unassigned      YES unset  administratively down down    
+GigabitEthernet5/2     92.242.29.230   YES NVRAM  up                    up      
+Loopback0              212.49.96.99    YES NVRAM  up                    up      
+Port-channel1          unassigned      YES unset  administratively down down    
+Port-channel2          unassigned      YES unset  administratively down down    
+Vlan1                  192.168.99.1    YES NVRAM  down                  down    
+Vlan3                  unassigned      YES unset  administratively down down    
+Vlan12                 unassigned      YES unset  administratively down down    
+Vlan13                 unassigned      YES unset  administratively down down    
+Vlan3301               unassigned      YES unset  administratively down down    
+Vlan3303               unassigned      YES unset  administratively down down    
+AR99-36.ekb#
