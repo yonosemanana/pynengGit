@@ -22,8 +22,11 @@ hostname sw1
 !
 interface FastEthernet0/0
  switchport mode access
+  test command
+  abcd
  switchport access vlan 10
  duplex auto
+  super-duplex
 !
 interface FastEthernet0/1
  switchport trunk encapsulation dot1q
@@ -38,7 +41,7 @@ interface FastEthernet0/2
 !         
 interface FastEthernet0/3
  switchport trunk encapsulation dot1q
- switchport trunk allowed vlan 100,300
+ switchport trunk allowed vlan 100,300,400-402,500,600-602,700
  duplex auto
  switchport mode trunk
 !         
@@ -54,11 +57,12 @@ interface FastEthernet1/1
 !
 interface FastEthernet1/2
  switchport trunk encapsulation dot1q
- switchport trunk allowed vlan 400,500
+ switchport trunk allowed vlan none
  switchport mode trunk
  duplex auto
 !
 interface FastEthernet1/3
+ switchport mode trunk
  duplex auto
 !
 interface Vlan100

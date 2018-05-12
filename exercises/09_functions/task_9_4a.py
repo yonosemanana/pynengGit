@@ -49,3 +49,66 @@ def check_ignore(command, ignore):
 
     '''
     return any(word in command for word in ignore)
+
+def count_start_spaces(s):
+    '''
+    The function returns the number of starting spaces of the string s.
+    '''  
+    n = 0
+    for c in s:
+        if c != ' ':
+            break
+        else:
+            n += 1
+            
+    return n
+
+
+def parse_config_to_dict(config_filename):
+    """
+    The function gets the name of the configuration file.
+    If there are two levels of subcommands, first level is a dictionary and the second is a list.
+    If there are three levels of subcommands, first and second levels are dictionaries and the third is a list.
+    The function ignores lines started with '!' and containing words from the ignore list.
+    """
+    
+    '''
+    THIS FUNCTION AND THIS PROGRAM IN GENERAL HAVEN'T BEEN COMPLETED YET!!!
+    '''
+    
+    result = {}
+    
+    lines = []
+    with open(config_filename) as f:
+        for line in f:
+            line = line.rstrip()
+            if not line.lstrip().startswith('!') and not check_ignore(line, ignore):
+                lines.append(line)
+    
+    #print(lines)
+    
+    buffer = [] # List of consequential string with the same depth level
+    
+    for i in range(len(lines)):
+        #print(lines[i])
+        
+        if i == 0:
+            pass
+        elif count_start_spaces(lines[i]) > count_start_spaces(lines[i-1]):
+            pass
+        elif count_start_spaces(lines[i]) == count_start_spaces(lines[i-1]):
+            buffer.append(lines[i])
+        elif count_start_spaces(lines[i]) < count_start_spaces(lines[i-1]):
+            pass
+        elif i == len(lines)-1:
+            pass
+            
+
+    return result
+
+d = parse_config_to_dict("config_sw1.txt")
+#print(d)
+for command in d:
+    print(command, d[command])
+    
+#print(count_start_spaces('  fadsfs '))

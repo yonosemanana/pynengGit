@@ -36,3 +36,30 @@ def ignore_command(command, ignore):
     * False - если нет
     '''
     return any(word in command for word in ignore)
+
+def parse_config_to_dict(config_filename):
+    """
+    The function gets the name of the configuration file.
+    The function returns a dictionary, where keys are top-level commands and values a lists of their subcommands.
+    The function ignores lines started with '!' and containing words from the ignore list.
+    """
+    result = {}
+    
+    with open(config_filename) as f:
+        for line in f:
+            line = line.rstrip()
+            if not line.startswith('!') and not ignore_command(line, ignore):
+                if not line.startswith(' '):
+                    top_command = line
+                    result[top_command] = []
+                else:
+                    result[top_command].append(line) 
+    
+    return result
+
+d = parse_config_to_dict("config_r1.txt")
+#print(d)
+for command in d:
+    print(command)
+    for subcommand in d[command]:
+        print(subcommand)

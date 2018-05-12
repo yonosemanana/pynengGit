@@ -17,7 +17,7 @@
 '''
 
 
-def generate_access_config(access):
+def generate_access_config(access, psecurity=False):
     '''
     access - словарь access-портов,
     для которых необходимо сгенерировать конфигурацию, вида:
@@ -43,6 +43,22 @@ def generate_access_config(access):
         'switchport port-security violation restrict',
         'switchport port-security'
     ]
+    
+    result = []
+    
+    for interface, vlan in access.items():
+        result.append(interface)
+        for command in access_template:
+            if command == 'switchport access vlan':
+                result.append(command + ' ' + str(access[interface])) 
+            else:
+                result.append(command)
+        if psecurity:
+            for command in port_security:
+                result.append(command)
+    
+    return result
+    
 
 
 access_dict = {
@@ -51,3 +67,6 @@ access_dict = {
     'FastEthernet0/16': 17,
     'FastEthernet0/17': 150
 }
+
+for line in generate_access_config(access_dict, True):
+    print(line)
