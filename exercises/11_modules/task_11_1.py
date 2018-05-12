@@ -27,3 +27,38 @@ R6           Fa 0/2          143           R S I           2811       Fa 0/0
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+
+def parse_cdp_neighbors(listing):
+    """
+    The function returns a dictionary of pairs ('<device>', '<port>') for existing links between devices.
+    Keys and values in the dictionary are tuples of strings, first element in the tuple is a device name and the second one - the device's interface.
+    As input the function gets a string - an output of the 'show cdp neighbors' command.
+    """
+    
+    result = {}
+    
+    lines = listing.split('\n')
+    
+    startData = False
+    for line in lines:
+        #print(line)
+        if 'show cdp neighbors' in line:
+            dev_name, *other = line.partition('>')
+        elif 'Device ID' in line:
+            startData = True
+            continue
+        elif startData and line != '':    
+            neigh_name, dev_port_type, dev_port_number, *other, neigh_port_type, neigh_port_number = line.split()
+            #print(line.split())
+            #print(dev_port_type, dev_port_number)
+            result[(dev_name, dev_port_type + dev_port_number)] = (neigh_name, neigh_port_type + neigh_port_number)
+            
+    return result 
+
+
+if __name__ == '__main__':
+    with open("sw1_sh_cdp_neighbors.txt") as f:
+        listing = f.read()
+    
+    d = parse_cdp_neighbors(listing)
+    print(d)    
